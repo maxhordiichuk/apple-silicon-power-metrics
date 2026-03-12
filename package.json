@@ -1,0 +1,55 @@
+{
+  "name": "apple-silicon-power-metrics",
+  "version": "1.0.0",
+  "description": "A native Node.js addon that reads real-time power consumption metrics on Apple Silicon Macs (M-series chips).",
+  "license": "MIT",
+  "author": "Maksym Hordiichuk",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "src/",
+    "dist/",
+    "prebuilds/",
+    "binding.gyp"
+  ],
+  "os": [
+    "darwin"
+  ],
+  "cpu": [
+    "arm64"
+  ],
+  "scripts": {
+    "build:native": "node-gyp rebuild",
+    "build:ts": "tsc",
+    "build": "npm run build:native && npm run build:ts",
+    "prebuild": "prebuildify --napi --strip",
+    "install": "node-gyp-build",
+    "test": "npm run build:ts && node --test dist/index.test.js",
+    "lint": "eslint src/",
+    "lint:fix": "eslint src/ --fix",
+    "format": "prettier --write src/",
+    "format:check": "prettier --check src/"
+  },
+  "dependencies": {
+    "node-addon-api": "^8.6.0",
+    "node-gyp-build": "^4.8.4"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^25.4.0",
+    "eslint": "^10.0.3",
+    "eslint-config-prettier": "^10.1.8",
+    "node-gyp": "^12.2.0",
+    "prebuildify": "^6.0.1",
+    "prettier": "^3.8.1",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.57.0"
+  }
+}
