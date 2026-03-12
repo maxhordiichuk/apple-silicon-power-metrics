@@ -1,6 +1,10 @@
 {
   "name": "apple-silicon-power-metrics",
   "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maxhordiichuk/apple-silicon-power-metrics.git"
+  },
   "description": "A native Node.js addon that reads real-time power consumption metrics on Apple Silicon Macs (M-series chips).",
   "license": "MIT",
   "author": "Maksym Hordiichuk",
