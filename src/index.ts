@@ -1,7 +1,6 @@
-import { createRequire } from 'module';
+import path = require('path');
 
-const require = createRequire(import.meta.url);
-const addon = require('node-gyp-build')(new URL('..', import.meta.url).pathname) as {
+const addon = require('node-gyp-build')(path.join(__dirname, '..')) as {
   getPowerMetrics(durationMs: number): PowerMetrics;
 };
 
