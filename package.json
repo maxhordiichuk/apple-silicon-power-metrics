@@ -1,6 +1,6 @@
 {
   "name": "apple-silicon-power-metrics",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/maxhordiichuk/apple-silicon-power-metrics.git"
@@ -14,6 +14,7 @@
   "exports": {
     ".": {
       "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
       "types": "./dist/index.d.ts"
     }
   },
@@ -31,7 +32,7 @@
   ],
   "scripts": {
     "build:native": "node-gyp rebuild",
-    "build:ts": "tsc",
+    "build:ts": "tsc && cp src/index.cjs dist/index.cjs",
     "build": "npm run build:native && npm run build:ts",
     "prebuild": "prebuildify --napi --strip",
     "install": "node-gyp-build",
